@@ -9,7 +9,7 @@ tags:
 
 - models data as entities and relationships
 - closer to real world than other models ???
-- mainly used for database models
+- mainly used for database schemas
 
 
 
@@ -58,11 +58,22 @@ tags:
 
 ![Person entity type and "has" relationship to Book entity type with cardinality zero or more](er3.svg)
 
-- beware: if wants to be able to version the graph, needs to keep the cardinality of a relationship at one and have many duplicated entities with the same content, instead of having a single entity that many otherwise unrelated entities link to, e.g. `Person ||has|| Birthday`, `Person ||has|| Age`, `Person ||has|| Address`, `Person ||has|| Nationality`, instead of `}|has||` or `Person ||has|{ Book` instead of `}|has|{` etc. ⚠️
+- beware: if wants to be able to version the data, needs to keep the cardinality of a relationship at one and have many duplicated entities with the same content, instead of having a single entity that many otherwise unrelated entities link to, e.g. `Person ||has|| Birthday`, `Person ||has|| Age`, `Person ||has|| Address`, `Person ||has|| Nationality`, instead of `}|has||` or `Person ||has|{ Book` instead of `}|has|{` etc. ⚠️
 
 ![Person entity type and "has" relationship to Birthday entity type with cardinality one but reverse zero or more](er2bad.svg)
 
 ![Person entity type and "has" relationship to Book entity type with cardinality zero or more but reverse also zero or more](er3bad.svg)
+
+
+
+## Database schema
+
+- structure of data
+- often modeled using ER model, i.e. fixed structure of entity types, relationship types, attribute types
+- implemented using constraints
+- used to give data a predictable structure
+- not every database needs to have a schema although often useful, e.g. graph databases
+- beware: using an ER model doesn't imply database needs to have schema ❗️
 
 
 

@@ -5,28 +5,40 @@ index: 2
 tags:
 ---
 
+## Introduction
+
+
+- all are bad at storing connected data
+- treat relationships as second-class, not explicit
+- can't have attributes on relationships
+- can't traverse relationships backwards
+
+
+
 ## Relational database
 
-- ???
-- not good to store relationships, even though their name contains "relation"
-
-- each row of the table represents one entity of the same entity type, has a unique identifier (primary key)
-- each field in the table represents an attribute
-- relationships between entities of different entity types are implicitly implemented by storing the ID (primary key) of one entity as a pointer (foreign key) in the table of the other entity, no explicit relationships, i.e. relationships can't have attributes
-- only attributes of an entity can have relationships, since they can contain a pointer to other entities, e.g. the person entry uses one birthday entry, while the birthday entry can be used by multiple person entries
+- data model consists of tables
+- each table corresponds to one entity type
+- each row (record) of the table represents one entity of that entity type
+- each column (field) in the table represents an attribute type of that entity type, e.g. unique identifier (primary key) in first column
+- relationships between entities are implicitly encoded using attributes, "foreign key" attribute contains primary key of entity that is related to
 
 ![Person entity type with birthday attribute and "use" relationship to Birthday entity type with cardinality one](er4.svg)
 
 - the relationship can be labeled "uses", is usually not labeled since it is always the same
-- the cardinality of a relationship of an attribute must be at least one, otherwise the attribute would be empty, if the cardinality is higher than one, the attribute must be an array, since it can contain multiple instances ❗️
+- the cardinality of a relationship must be at least one, otherwise the attribute would be empty
+- if the cardinality is higher than one, the attribute must be an array, since it can contain multiple instances ❗️
 
 ![Person entity type with phone attribute array and "use" relationship to Phone entity type with cardinality one or more](er5.svg)
+
+- schema-fixed: data must have fixed structure, column of table forces nodes to have the same attribute types, can not add / remove attributes only for some entities without changing other ones
 
 
 
 ## Object database
 
-- stores information in the form of objects, as opposed to tables like relational databases
-- an object is one entity, has a unique identifier
-- a property is an attribute, can be an object if it doesn't link to it
-- relationships between entities of different entity types are still implemented by storing the ID of one entity in the attribute of the other entity, i.e. like relational database
+- data model consist of objects
+- each object corresponds to one entity
+- each property is an attribute, e.g. unique identifier (primary key) in first property
+- relationships between entities are still implicitly encoded using same "foreign key" attribute as in relational database
+- schema-free: data can have variable structure, no two objects need to have the same properties
