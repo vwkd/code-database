@@ -42,3 +42,7 @@ tags:
 - each property is an attribute, e.g. unique identifier (primary key) in first property
 - relationships between entities are still implicitly encoded using same "foreign key" attribute as in relational database
 - schema-free: data can have variable structure, no two objects need to have the same properties
+
+
+
+## Resources
