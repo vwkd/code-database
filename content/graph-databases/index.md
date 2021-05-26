@@ -6,6 +6,12 @@ tags:
 ---
 
 <!-- ToDo: Finish -->
+<!-- todo: when to use node vs. attribute
+https://stackoverflow.com/questions/52369909/neo4j-node-versus-node-property
+
+- Need to traverse relationship often ?
+- Avoid supermodels
+-->
 
 ## Graph
 
